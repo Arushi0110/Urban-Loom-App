@@ -1,10 +1,6 @@
 import streamlit as st
-import pandas as pd
 
-uploaded_file = st.file_uploader("Upload CSV", type="csv")
-if uploaded_file:
-    df = pd.read_csv(uploaded_file)
-    st.write(df)
+
 def set_sidebar_bg_from_url(url):
     st.markdown(
         f"""
@@ -43,6 +39,8 @@ sidebar_bg_url = "https://images.pexels.com/photos/1679719/pexels-photo-1679719.
 set_sidebar_bg_from_url(sidebar_bg_url)
 
 st.set_page_config(page_title="Urban Loom", layout="wide")
+
+import pandas as pd
 
 st.title("🏙️ :blue[Urban Loom: Traffic & Emissions Predictor]")
 
