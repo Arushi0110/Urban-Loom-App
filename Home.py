@@ -60,3 +60,7 @@ This application is built with a machine learning model that analyzes key factor
 
 ### :green[⬅] :blue[Use the navigation bar on the left to explore the different sections of the app.]
 """)
+uploaded_file = st.file_uploader("Upload CSV", type="csv")
+if uploaded_file:
+    df = pd.read_csv(uploaded_file)
+    st.write(df)
