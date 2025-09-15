@@ -1,4 +1,10 @@
 import streamlit as st
+import pandas as pd
+
+uploaded_file = st.file_uploader("Upload CSV", type="csv")
+if uploaded_file:
+    df = pd.read_csv(uploaded_file)
+    st.write(df)
 def set_sidebar_bg_from_url(url):
     st.markdown(
         f"""
