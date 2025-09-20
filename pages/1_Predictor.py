@@ -3,42 +3,6 @@ import joblib
 import pandas as pd
 import numpy as np
 
-def set_sidebar_bg_from_url(url):
-    st.markdown(
-        f"""
-        <style>
-        [data-testid="stSidebar"] {{
-            background-image: url("{url}");
-            background-size: cover;
-            background-position: center;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-def set_page_bg_from_url(url):
-    st.markdown(
-        f"""
-        <style>
-        [data-testid="stAppViewContainer"] {{
-            background-image: url("{url}");
-            background-size: cover;
-            background-position: center;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-# --- Set the background images for the entire app ---
-# This URL will be used for the page background
-page_bg_url = "https://img.freepik.com/free-vector/black-background-with-focus-spot-light_1017-27230.jpg?semt=ais_hybrid&w=740&q=80" 
-set_page_bg_from_url(page_bg_url)
-
-# This URL will be used for the sidebar background
-sidebar_bg_url = "https://images.pexels.com/photos/1679719/pexels-photo-1679719.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-set_sidebar_bg_from_url(sidebar_bg_url)
 # --- Caching the model loading function ---
 @st.cache_resource
 def load_ml_pipeline():
@@ -99,8 +63,8 @@ if st.button(":green[Predict Traffic]"):
     # Make the prediction using the loaded pipeline
     predicted_traffic = pipeline.predict(input_data)[0]
 
-    st.subheader("Results")
-    st.markdown(f"**Based on the provided conditions, the model predicts the following traffic information:**")
+    st.header(":green[Results]")
+    st.markdown(f":orange[**Based on the provided conditions, the model predicts the following traffic information:**]")
     st.metric(label="Predicted Traffic Density", value=f"{predicted_traffic:.4f}")
 
     # Interpret the traffic density to give a simple text output
